@@ -16,8 +16,8 @@ $(window).scroll(function () {
 
 /*******************************************************************************************/
 
-const tabs = document.querySelectorAll(".tabs__btn");
-const tabsContent = document.querySelectorAll(".tabs__body");
+const tabs = document.querySelectorAll(".tabs_main");
+const tabsContent = document.querySelectorAll(".tab_body_main");
 
 if (tabsContent.length > 0 || tabs.length > 0) {
   function hideTabContent() {
@@ -45,7 +45,66 @@ if (tabsContent.length > 0 || tabs.length > 0) {
     });
   });
 }
+// SEC
+const tabs_list = document.querySelectorAll(".tabs_inner");
+const tabs_main = document.querySelectorAll(".tab_body_inner");
 
+if (tabs_main.length > 0 || tabs_list.length > 0) {
+  function hideTabContent() {
+    tabs_main.forEach((item) => {
+      item.classList.remove("active");
+    });
+
+    tabs_list.forEach((item) => {
+      item.classList.remove("active");
+    });
+  }
+
+  function showTabContent(i = 0) {
+    tabs_main[i].classList.add("active");
+    tabs_list[i].classList.add("active");
+  }
+
+  hideTabContent();
+  showTabContent();
+
+  tabs_list.forEach((tabs_list, index) => {
+    tabs_list.addEventListener("click", () => {
+      hideTabContent();
+      showTabContent(index);
+    });
+  });
+}
+// THREE
+const tabs_thr = document.querySelectorAll(".tabs_sec");
+const tabs_clr = document.querySelectorAll(".tab_inner_sec");
+
+if (tabs_clr.length > 0 || tabs_thr.length > 0) {
+  function hideTabContent() {
+    tabs_clr.forEach((item) => {
+      item.classList.remove("active");
+    });
+
+    tabs_thr.forEach((item) => {
+      item.classList.remove("active");
+    });
+  }
+
+  function showTabContent(i = 0) {
+    tabs_clr[i].classList.add("active");
+    tabs_thr[i].classList.add("active");
+  }
+
+  hideTabContent();
+  showTabContent();
+
+  tabs_thr.forEach((tabs_thr, index) => {
+    tabs_thr.addEventListener("click", () => {
+      hideTabContent();
+      showTabContent(index);
+    });
+  });
+}
 /*******************************************************************************************/
 
 $(function () {
